@@ -1,9 +1,0 @@
-import ReactDOM from 'react-dom'; -- pt app-uri offline
-
-Axios - npm library
-
-componentDidMount()se apelezaa o singura data cand componenta ajunge pe pagina
-
-XHR - ajax req
-
-- un event listener primeste ca parametru un event
