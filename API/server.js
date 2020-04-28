@@ -21,9 +21,10 @@ app.post('/todos', async (req, res) => {
   //const { title, isCompleted } = req.body;
 
   await database.createTodo(title, isCompleted);
-  res.json();
+  res.json(); // vreau ca serverul sa raspunda cu status 200 si Json gol
 })
 
+// PUT - folosita pt updates
 app.put('/todos/:id', async (req, res) => {
   const id = req.params.id; // const { id } = req.params
   const isCompleted = req.body.isCompleted; // const { isCompleted } = req.body
@@ -31,7 +32,9 @@ app.put('/todos/:id', async (req, res) => {
   await database.updateTodo(id, isCompleted);
   res.json();
 })
+//:id - accept orice numar
 
+// DELETE - body nu are niciodata un req de tip delete
 app.delete('/todos/:id', async (req, res) => {
   const id = req.params.id; // const { id } = req.params
   await database.deleteTodo(id);
