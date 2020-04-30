@@ -38,7 +38,7 @@ class TodoList extends Component {
 
   filterTodos = (todos, filter) => {
     if (filter === 'ALL') {
-      return TodoList;
+      return todos;
     } 
 
     if (filter === 'COMPLETED') {
@@ -79,7 +79,7 @@ class TodoList extends Component {
           />
 
           <div className="todosList">
-            {this.state.todos.map((element) => {
+            {filteredTodos.map((element) => {
               return <label key={element.id} className="todo">
                 <input 
                   type="checkbox" 
