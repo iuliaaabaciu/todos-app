@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import TodoList from './TodoList';
+import TodoApp from './TodoApp';
 
 ReactDOM.render(
   <React.StrictMode>
-    <TodoList />
+    <TodoApp />
   </React.StrictMode>,
   document.getElementById('root')
 );

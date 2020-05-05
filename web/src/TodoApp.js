@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import './index.css';
+import Filters from './Filters';
+import TodosList from './TodosList';
 import { listTodos, createTodo, updateTodo, deleteTodo } from './todos';
 
 class TodoList extends Component {
@@ -78,27 +79,18 @@ class TodoList extends Component {
                 onKeyPress={this.onInputKeyPress}
           />
 
-          <div className="todosList">
-            {filteredTodos.map((element) => {
-              return <label key={element.id} className="todo">
-                <input 
-                  type="checkbox" 
-                  checked={ element.isCompleted } 
-                  onChange={(event) => {
-                    this.checkTodo(element.id, event.target.checked)
-                  }} 
-                />
-                { element.title } 
-                <button onClick={ () => this.deleteTodo(element.id)}>x</button>
-              </label>
-            })}
-          </div>
+          <TodosList 
+            filteredTodos={filteredTodos} //nu am pus this pt ca var e in interiorul functiei render
+            checkTodo={this.checkTodo}
+            deleteTodo={this.deleteTodo}
+          />
 
-          <div>
-            <button onClick={this.setFilterToAll}>All</button>
-            <button onClick={this.setFilterToCompleted}>Completed</button>
-            <button onClick={this.setFilterToIncompleted}>Incompleted</button>
-          </div>
+          <Filters 
+            setFilterToAll={this.setFilterToAll} 
+            setFilterToCompleted={this.setFilterToCompleted} 
+            setFilterToIncompleted={this.setFilterToIncompleted}          
+          />
+
         </div>
       );
     }
